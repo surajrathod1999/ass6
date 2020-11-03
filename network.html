@@ -1,0 +1,334 @@
+<!DOCTYPE html> 
+<head>
+<title> 
+</title> 
+<style> 
+table 
+{ 
+color:white; 
+border-radius:20px; 
+} 
+#Button 
+{
+background-color:green; 
+color:white; 
+height:32px; 
+width:85px; 
+border-radius:25px; 
+}
+ 
+body 
+{
+background-image: url('B3.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover; 
+background:liner-gradient(red,blue); 
+} 
+</style> 
+</head> 
+<body>
+<marquee><center><h1 style="color:RED;">Complaint Management System(CMS)-Always here for help you.........:) </h1></center></marquee>
+<center> 
+<br>
+<h2 style="background-color:GRAY;">Registration Form</h2>
+</center>
+<br> 
+
+<form>
+<div id="containet">
+<table border="0" bgcolor="black" align="center" cellspacing="20">
+<tr>
+<td><div class="input" >Name of Company</td>
+<td><input id="fname" type="text"  placeholder="SSL" size="25"required></td>
+</div>
+</tr>
+
+<tr> 
+<td><div class="input">Cell no</td> 
+<td><input type="text" id="lname" placeholder="+91 1234567890" size="25" required></td> 
+</div>
+</tr>
+ 
+<tr> 
+<td><div class="input">Mail</td> 
+<td><input type="text" id="email" placeholder="xyz@gmail.com" size="25" required></td> 
+</div>
+</tr>
+ 
+<tr> 
+<td><div class="input">CIN Number</td> 
+<td><input type="text" id="sno" placeholder="9999 " size="25" min="1" max="9999" required></td>
+</div>
+</tr>
+ 
+<tr> 
+<td><div class="input">Since</td> 
+<td><input type="text" id="eno" placeholder="2020" size="25" required></td>
+</div>
+</tr>
+
+<tr> 
+<td><div class="input">Company Type</td> 
+<td><select id="branch">
+<option>Private Limited Company</option>
+<option>Public Limited Company</option><option>Software Company</option><option>Royal Chartered Companies</option><option>Government</option>
+</select></td>
+</div>
+</tr>
+
+<tr> 
+<td><div class="input">Company Status</td> 
+<td><select id="batch">
+<option>Cooprative</option>
+<option>Non-cooprative</option>
+</select></td>
+</div>
+</tr>
+ 
+<tr> 
+<td><div class="input">_______________</td>
+<td><input type="password" id="pass" placeholder="Password" size="1" required></td> 
+</div>
+</tr> 
+
+<tr> 
+<td>Government Approved</td> 
+<td>
+<input type="radio" name="r1" >Yes
+<input type="radio" name="r1" >No 
+</td> 
+</tr>
+
+<tr>
+<td>Date Of Approval</td>
+<td>
+<select>
+<option>DAY</option>
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+<option>31</option>
+</select>
+<select>
+<option>MONTH</option>
+<option>Jan</option><option>Feb</option><option>Mar</option><option>April</option><option>May</option><option>Jun</option><option>Jul</option><option>Aug</option><option>Sep</option><option>Act</option>
+<option>Nav</option><option>Dec</option>
+</select>
+<select>
+<option>YEAR</option>
+<option>1998</option><option>1999</option><option>2000</option><option>2001</option><option>2002</option><option>2003</option>
+</select>
+<tr> 
+<td>Located In</td> 
+<td>
+<input type="checkbox" name="r1" >India
+<input type="checkbox" name="r1" >Armenia
+<br>
+<input type="checkbox" name="r1" >Afghanistan
+<input type="checkbox" name="r1" >Albania
+</td> 
+</tr>
+
+<tr> 
+<td>Msg/Comm</td> 
+<td><textarea id="add" rows="3" cols="22"></textarea></td>
+</tr>
+
+
+<tr> 
+<center><td><td><button id="entry">Register</button></center></td> 
+</tr> 
+</div>
+</form> 
+</table>
+
+
+</style>
+<center>
+<table id="display">
+<h2 style="background-color:TEAL;">Student List</h2>
+<tr>
+	<th>Company Name</th>
+	<th>Cell No</th>
+	<th>Mail</th>
+	<th>CIN</th>
+	<th>Time Stamp</th>
+	
+	<th>Year Of Establish</th>
+	<th>Type</th>
+	<th>Status</th>
+	<th>Reg.NO</th>	
+	
+</tr>
+</table>
+</center>	
+	
+<script>
+document.getElementById("pass").style.visibility = "hidden";
+var entry = document.getElementById("entry");
+entry.addEventListener("click", displayDetails); 
+var row = 1; 
+function displayDetails() 
+{
+	var fname = document.getElementById("fname").value; 
+	var fname1 = /^[a-zA-Z]+$/;
+	if(!fname.match(fname1))
+	{
+	alert("You have entered an invalid company name");
+	return false;
+	}
+	
+	
+	var lname = document.getElementById("lname").value;
+	var lname1 = /^\d{10}$/;
+	if(!lname.match(lname1))
+	{
+	alert("You have entered an invalid Cell number");
+	return false;
+	}
+	var email = document.getElementById("email").value; 
+	
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(!email.match(mailformat))
+	{
+	alert("You have entered an invalid email address!");
+	return false;
+	}
+	
+	var eno = document.getElementById("eno").value;
+	var year = /^[0-9]+$/;
+	if(!eno.match(year))
+	{
+	alert("You have entered an invalid year!");
+	return false;
+	}
+	
+	
+	var sno = document.getElementById("sno").value;
+	var snoo = /^[0-9]+$/;
+	if(!sno.match(snoo))
+	{
+	alert("You have entered an invalid CIN!");
+	return false;
+	}
+	var yer = eno.slice(-2);
+	
+	var branch = document.getElementById("branch");
+	var bran = branch.options[branch.selectedIndex].value;
+	var text;
+	switch (bran) 
+	{
+	case "Private Limited Company":
+		text = "CS";
+		break;
+	case "Public Limited Company":
+		text = "ME";
+		break;
+	case "Software Company":
+		text = "CE";
+		break;
+	case "Royal Chartered Companies":
+		text = "BE";
+		break;
+	case "Government":
+		text = "IT";
+		break;
+	default:
+		text = "Kindly select Company type";
+		return false;
+	}
+	
+	
+	var batch = document.getElementById("batch");
+	var bat = batch.options[batch.selectedIndex].value;
+	var text1;
+	switch (bat) 
+	{
+	case "Cooprative":
+		text1 = "01";
+		break;
+	case "Non-cooprative":
+		text1 = "02";
+		break;
+	default:
+		text1 = "Kindly select Status";
+		return false;
+	}
+	
+	
+	
+	
+	
+	var snor = document.getElementById("sno").value;
+	var t;
+	if(snor>9999)
+	{
+	alert("Enter valid CIN!")
+	return false;
+	}
+	else if(snor<=9 && snor >=1)
+	{
+	t="000";
+	}
+	else if(snor<=99 && snor>9)
+	{
+	t="00"
+	}
+	else if(snor<=999 && snor>99)
+	{
+	t="0"
+	}
+	else
+	{
+	t="";
+	}
+	
+	var coo="Your Register No:";
+	var co = yer.concat(text,text1,t,snor);
+	var cooo=coo.concat(co);
+	
+	
+	alert("Registration done Successfully...................!");
+	alert(cooo);
+	
+	if(!fname || !lname || !email || !eno)
+	{
+	alert("Please fill all values.....");
+	return;
+	}
+	var display = document.getElementById("display"); 
+	var newRow = display.insertRow(row); 
+
+var date = new Date();
+var timestamp = date.getTime();
+
+var cell1 = newRow.insertCell(0); 
+var cell2 = newRow.insertCell(1); 
+var cell3 = newRow.insertCell(2);
+var cell4 = newRow.insertCell(3);
+var cell5 = newRow.insertCell(4);
+var cell6 = newRow.insertCell(5); 
+var cell7 = newRow.insertCell(6); 
+var cell8 = newRow.insertCell(7);
+var cell9 = newRow.insertCell(8);
+
+cell1.innerHTML = fname;
+cell2.innerHTML = lname;
+cell3.innerHTML = email;
+cell4.innerHTML = sno;
+cell5.innerHTML = timestamp;
+
+cell6.innerHTML = eno;
+cell7.innerHTML = bran;
+cell8.innerHTML = bat;
+cell9.innerHTML = co;
+
+
+row++;
+}
+</script>
+<marquee bgcolor="RED" scrolldelay="50" scrollamount="10" truespeed>Website is best viewed in Mozilla Firefox version 12.0.1 and above</marquee>
+<marquee></marquee>
+</body>
+ </html> 
